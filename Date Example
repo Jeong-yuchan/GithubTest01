@@ -1,0 +1,26 @@
+using System.Diagnostics.CodeAnalysis;
+
+namespace ConsoleApp75
+{
+   
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("년도 :");
+            int year = int.Parse(Console.ReadLine());
+            Console.Write("월 :");
+            int month = int.Parse(Console.ReadLine());
+            Console.Write("일 :");
+            int day = int.Parse(Console.ReadLine());
+
+
+            string time = new DateTime(year, month, day).ToString();
+            Console.WriteLine(time);
+
+            Console.Write("현재 시간 : ");
+            string currentTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:dd");
+            Console.WriteLine(currentTime); 
+        }
+    }
+}
