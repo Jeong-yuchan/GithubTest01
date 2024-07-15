@@ -1,0 +1,40 @@
+namespace ConsoleApp74
+{
+    class Car
+    {
+        public string brand { get; set; }
+        public int speed { get; set; }
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //1. 브랜드와 스피드 다른 자동차 3개를 만드세요.
+            List<Car> carList = new List<Car>();
+
+            Car car1 = new Car();
+            Car car2 = new Car();
+            Car car3 = new Car();
+            car1.brand = "현대";
+            car2.brand = "기아";
+            car3.brand = "BMW";
+            car1.speed = 300;
+            car2.speed = 280;
+            car3.speed = 290;
+            //2. car 객체를 담는 carList를 만듭니다.
+
+            carList.Add(car1);
+            carList.Add(car2);
+            carList.Add(car3);
+
+            //3. carList를 이용해서 자동차의 브랜드와 속도를 출력하세요.
+            foreach (Car car in carList)
+            {
+                Console.WriteLine(car.brand);
+                Console.WriteLine($"{car.speed}km");
+            }
+
+        }
+    }
+}
