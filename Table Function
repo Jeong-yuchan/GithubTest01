@@ -1,0 +1,30 @@
+SELECT * FROM MOVIES;
+-- 1. 장르별로 영화 편수를 알려주세요.
+SELECT GENRE, COUNT(GENRE) FROM MOVIES
+GROUP BY GENRE
+ORDER BY COUNT(GENRE);
+
+--2. 러닝 타임 130이상인 영화인 제목은?
+SELECT TITLE,RUNTIME FROM MOVIES
+WHERE RUNTIME >=130;
+
+--3. 2015전 후 영화는 몇 편인가?
+SELECT 
+    SUM(CASE
+        WHEN RELEASE_DATE  >= TO_DATE('2014-12-31','YYYY-MM-DD') THEN 1 ELSE 0 
+        END) AS "2015이후",
+    SUM(CASE
+        WHEN RELEASE_DATE  < TO_DATE('2015-01-01','YYYY-MM-DD') THEN 1 ELSE 0 
+        END) AS "2014이전"
+FROM MOVIES;
+
+--4.평균 러닝 타임은 얼마인가?
+SELECT AVG(RUNTIME) FROM MOVIES;
+
+
+--5.가장 긴 영화와 가장 짧은 영화의 각각의 제목? (서브쿼리)
+
+select title
+from movies
+where runtime in((select max(runtime) from movies),
+                 (select min(runtime) from movies));  
