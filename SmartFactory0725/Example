@@ -1,0 +1,40 @@
+using System.Numerics;
+
+namespace ConsoleApp85
+{
+    class Util
+    {
+        public int[] InputScore(int[] arr)
+        {
+            int total = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+                total += arr[i];
+            }
+            arr[3] = total;
+            return arr;
+        }
+
+        public void OutputScore(int[] arr)
+        {
+            Console.WriteLine($"총점 : {arr[3]}");
+            Console.WriteLine($"총점 : {arr[3] / 3.0:F2}");
+        }
+
+    }
+
+    internal class Program
+    {
+       
+        static void Main(string[] args)
+        {
+            int[] score = new int[4];
+            Util util = new Util();
+            util.InputScore(score);
+            util.OutputScore(score);
+
+
+        }
+    }
+}
